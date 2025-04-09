@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家有心晴 - 家庭關係促進平台</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+</head>
+<body>
+  <!-- 導航欄 -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="assets/logo.svg" alt="家有心晴" class="logo-image">
+        <span class="logo-text">家有心晴</span>
+      </a>
+      
+      <div class="nav-menu">
+        <a href="/" class="nav-item active">
+          <i class="ri-home-5-line"></i>
+          <span>首頁</span>
+        </a>
+        <a href="/family.html" class="nav-item">
+          <i class="ri-group-line"></i>
+          <span>家庭</span>
+        </a>
+        <a href="/dialogue.html" class="nav-item">
+          <i class="ri-chat-3-line"></i>
+          <span>對話</span>
+        </a>
+        <a href="/emotions.html" class="nav-item">
+          <i class="ri-heart-pulse-line"></i>
+          <span>情緒</span>
+        </a>
+        <a href="/tasks.html" class="nav-item">
+          <i class="ri-task-line"></i>
+          <span>任務</span>
+        </a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="notification-btn">
+          <i class="ri-notification-3-line"></i>
+          <span class="notification-badge">3</span>
+        </button>
+        <div class="user-menu">
+          <img src="assets/avatar.jpg" alt="用戶頭像" class="user-avatar">
+          <span class="user-name">陳美玲</span>
+          <i class="ri-arrow-down-s-line"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主要內容 -->
+  <main class="main-container">
+    <!-- 歡迎區塊 -->
+    <section class="welcome-section">
+      <div class="greeting-card">
+        <div class="user-welcome">
+          <h2>您好，<span class="user-name">陳美玲</span></h2>
+          <p class="today-date">星期三，4月10日</p>
+        </div>
+        <div class="emotion-prompt">
+          <h3 class="emotion-question">今天心情如何？</h3>
+          <div class="emotion-selector">
+            <button class="emotion-btn joy" aria-label="開心">😊</button>
+            <button class="emotion-btn calm" aria-label="平靜">😌</button>
+            <button class="emotion-btn neutral" aria-label="普通">😐</button>
+            <button class="emotion-btn sad" aria-label="難過">😔</button>
+            <button class="emotion-btn stressed" aria-label="壓力">😫</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 家庭互動區 -->
+    <section class="family-section">
+      <div class="section-header">
+        <h3>家庭互動</h3>
+        <a href="/family.html" class="view-all">查看全部<i class="ri-arrow-right-s-line"></i></a>
+      </div>
+      <div class="family-status-cards">
+        <!-- 家人狀態卡片 -->
+        <div class="family-member-card">
+          <div class="avatar-container">
+            <img src="assets/family-member-1.jpg" alt="王大明" class="avatar">
+            <span class="status-dot online" title="在線"></span>
+          </div>
+          <div class="member-info">
+            <h4>王大明</h4>
+            <p class="relation">丈夫</p>
+            <p class="last-mood">今天感覺<span class="mood-tag calm">平靜</span></p>
+          </div>
+          <button class="connect-btn" aria-label="連結">
+            <i class="ri-link-m"></i>
+          </button>
+        </div>
+        
+        <div class="family-member-card">
+          <div class="avatar-container">
+            <img src="assets/family-member-2.jpg" alt="王小明" class="avatar">
+            <span class="status-dot offline" title="離線"></span>
+          </div>
+          <div class="member-info">
+            <h4>王小明</h4>
+            <p class="relation">兒子</p>
+            <p class="last-mood">昨天感覺<span class="mood-tag stressed">有壓力</span></p>
+          </div>
+          <button class="connect-btn" aria-label="連結">
+            <i class="ri-link-m"></i>
+          </button>
+        </div>
+        
+        <div class="family-member-card">
+          <div class="avatar-container">
+            <img src="assets/family-member-3.jpg" alt="陳媽媽" class="avatar">
+            <span class="status-dot online" title="在線"></span>
+          </div>
+          <div class="member-info">
+            <h4>陳媽媽</h4>
+            <p class="relation">母親</p>
+            <p class="last-mood">今天感覺<span class="mood-tag joy">開心</span></p>
+          </div>
+          <button class="connect-btn" aria-label="連結">
+            <i class="ri-link-m"></i>
+          </button>
+        </div>
+        
+        <div class="family-member-card add-member">
+          <div class="add-member-content">
+            <div class="add-icon">
+              <i class="ri-user-add-line"></i>
+            </div>
+            <p>添加家庭成員</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 推薦活動區 -->
+    <section class="recommended-section">
+      <div class="section-header">
+        <h3>為您推薦</h3>
+      </div>
+      <div class="recommendation-cards">
+        <div class="task-card dialogue">
+          <div class="task-icon"><i class="ri-chat-heart-line"></i></div>
+          <div class="task-content">
+            <h4>親子溝通練習</h4>
+            <p>與孩子進行10分鐘的聆聽練習</p>
+            <div class="task-meta">
+              <span class="time"><i class="ri-time-line"></i> 10分鐘</span>
+              <span class="difficulty">簡單</span>
+            </div>
+          </div>
+          <button class="start-btn">開始</button>
+        </div>
+        
+        <div class="task-card activity">
+          <div class="task-icon"><i class="ri-group-2-line"></i></div>
+          <div class="task-content">
+            <h4>週末家庭時光</h4>
+            <p>計劃一個家庭共同活動</p>
+            <div class="task-meta">
+              <span class="time"><i class="ri-time-line"></i> 2小時</span>
+              <span class="difficulty">中等</span>
+            </div>
+          </div>
+          <button class="start-btn">開始</button>
+        </div>
+        
+        <div class="task-card reflection">
+          <div class="task-icon"><i class="ri-mental-health-line"></i></div>
+          <div class="task-content">
+            <h4>情緒覺察日記</h4>
+            <p>記錄今日情緒變化</p>
+            <div class="task-meta">
+              <span class="time"><i class="ri-time-line"></i> 5分鐘</span>
+              <span class="difficulty">簡單</span>
+            </div>
+          </div>
+          <button class="start-btn">開始</button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 進度追蹤區 -->
+    <section class="progress-section">
+      <div class="section-header">
+        <h3>本週進度</h3>
+        <a href="/progress.html" class="view-all">完整報告<i class="ri-arrow-right-s-line"></i></a>
+      </div>
+      <div class="progress-summary-card">
+        <div class="progress-stats">
+          <div class="stat-item">
+            <span class="stat-value">3</span>
+            <span class="stat-label">互動對話</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">2</span>
+            <span class="stat-label">家庭任務</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">5</span>
+            <span class="stat-label">連續登入</span>
+          </div>
+        </div>
+        <div class="weekly-chart">
+          <div class="chart-header">
+            <h4>活動頻率</h4>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="color-dot dialogue"></span>對話</span>
+              <span class="legend-item"><span class="color-dot task"></span>任務</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="chart-column">
+              <div class="chart-bar-container">
+                <div class="chart-bar dialogue" style="height: 30%"></div>
+                <div class="chart-bar task" style="height: 20%"></div>
+              </div>
+              <div class="chart-label">一</div>
+            </div>
+            <div class="chart-column">
+              <div class="chart-bar-container">
+                <div class="chart-bar dialogue" style="height: 40%"></div>
+                <div class="chart-bar task" style="height: 0%"></div>
+              </div>
+              <div class="chart-label">二</div>
+            </div>
+            <div class="chart-column">
+              <div class="chart-bar-container">
+                <div class="chart-bar dialogue" style="height: 20%"></div>
+                <div class="chart-bar task" style="height: 60%"></div>
+              </div>
+              <div class="chart-label">三</div>
+            </div>
+            <div class="chart-column">
+              <div class="chart-bar-container">
+                <div class="chart-bar dialogue" style="height: 0%"></div>
+                <div class="chart-bar task" style="height: 0%"></div>
+              </div>
+              <div class="chart-label">四</div>
+            </div>
+            <div class="chart-column">
+              <div class="chart-bar-container">
+                <div class="chart-bar dialogue" style="height: 50%"></div>
+                <div class="chart-bar task" style="height: 30%"></div>
+              </div>
+              <div class="chart-label">五</div>
+            </div>
+            <div class="chart-column">
+              <div class="chart-bar-container">
+                <div class="chart-bar dialogue" style="height: 10%"></div>
+                <div class="chart-bar task" style="height: 40%"></div>
+              </div>
+              <div class="chart-label">六</div>
+            </div>
+            <div class="chart-column">
+              <div class="chart-bar-container">
+                <div class="chart-bar dialogue" style="height: 60%"></div>
+                <div class="chart-bar task" style="height: 10%"></div>
+              </div>
+              <div class="chart-label">日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 成就與里程碑 -->
+    <section class="achievements-section">
+      <div class="section-header">
+        <h3>最近成就</h3>
+        <a href="/achievements.html" class="view-all">所有成就<i class="ri-arrow-right-s-line"></i></a>
+      </div>
+      <div class="achievements-showcase">
+        <div class="achievement-card active">
+          <div class="achievement-icon">
+            <i class="ri-chat-heart-fill"></i>
+          </div>
+          <div class="achievement-info">
+            <h4>溝通達人</h4>
+            <p>完成10次親子對話練習</p>
+          </div>
+          <div class="achievement-progress">
+            <div class="progress-bar" style="width: 70%"></div>
+            <span class="progress-text">7/10</span>
+          </div>
+        </div>
+        
+        <div class="achievement-card completed">
+          <div class="achievement-icon">
+            <i class="ri-emotion-happy-fill"></i>
+          </div>
+          <div class="achievement-info">
+            <h4>情緒覺察者</h4>
+            <p>連續7天記錄情緒</p>
+          </div>
+          <div class="achievement-status">
+            <i class="ri-check-double-line"></i>
+            <span>已完成</span>
+          </div>
+        </div>
+        
+        <div class="achievement-card active">
+          <div class="achievement-icon">
+            <i class="ri-team-fill"></i>
+          </div>
+          <div class="achievement-info">
+            <h4>團隊合作</h4>
+            <p>與家人共同完成5次任務</p>
+          </div>
+          <div class="achievement-progress">
+            <div class="progress-bar" style="width: 40%"></div>
+            <span class="progress-text">2/5</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 底部導航欄 (移動端) -->
+  <nav class="mobile-nav">
+    <a href="/" class="nav-item active">
+      <i class="ri-home-5-line"></i>
+      <span>首頁</span>
+    </a>
+    <a href="/family.html" class="nav-item">
+      <i class="ri-group-line"></i>
+      <span>家庭</span>
+    </a>
+    <a href="/dialogue.html" class="nav-item">
+      <i class="ri-chat-3-line"></i>
+      <span>對話</span>
+    </a>
+    <a href="/emotions.html" class="nav-item">
+      <i class="ri-heart-pulse-line"></i>
+      <span>情緒</span>
+    </a>
+    <a href="/tasks.html" class="nav-item">
+      <i class="ri-task-line"></i>
+      <span>任務</span>
+    </a>
+  </nav>
+
+  <script src="js/home.js"></script>
+</body>
+</html>
