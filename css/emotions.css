@@ -1,0 +1,448 @@
+/* =============== 情緒追蹤頁面樣式 =============== */
+
+/* 頁面主體 */
+.emotions-page {
+  padding: var(--space-6) 0;
+  background-color: var(--background-body);
+}
+
+/* 情緒記錄卡片 */
+.emotion-card {
+  padding: var(--space-5);
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* 情緒選擇器 */
+.emotion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin: 0 auto;
+  max-width: 450px;
+}
+
+.emotion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform var(--transition-normal) ease;
+}
+
+.emotion-item:hover {
+  transform: translateY(-5px);
+}
+
+.emotion-item.selected {
+  transform: scale(1.05);
+}
+
+.emotion-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+  color: white;
+  font-size: 30px;
+  transition: all var(--transition-normal) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.emotion-item.selected .emotion-icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid var(--text-primary);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.emotion-label {
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-1);
+  transition: color var(--transition-normal) ease;
+}
+
+.emotion-item.selected .emotion-label {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* 情緒強度滑塊 */
+.intensity-slider {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 450px;
+}
+
+.intensity-track {
+  height: 8px;
+  background: linear-gradient(to right, 
+    var(--emotion-calm), 
+    var(--emotion-joy), 
+    var(--emotion-angry));
+  border-radius: var(--radius-full);
+  position: relative;
+  margin-bottom: var(--space-3);
+}
+
+.intensity-progress {
+  position: absolute;
+  height: 100%;
+  width: 50%; /* 默認值 */
+  background: transparent;
+  border-radius: var(--radius-full);
+}
+
+.intensity-thumb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%; /* 默認值 */
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast) ease;
+}
+
+.intensity-thumb:hover,
+.intensity-thumb:active {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.intensity-labels {
+  width: 100%;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* 情緒備註文本框 */
+.emotion-notes {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  resize: none;
+  transition: border-color var(--transition-normal) ease, 
+              box-shadow var(--transition-normal) ease;
+}
+
+.emotion-notes:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-alpha-10);
+}
+
+/* 主要按鈕 */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  border: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  transition: background-color var(--transition-normal) ease,
+              transform var(--transition-fast) ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* 情緒歷史區塊 */
+.emotion-history .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+/* 情緒週視圖 */
+.emotion-chart {
+  height: 200px;
+  position: relative;
+}
+
+.emotion-chart-placeholder {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 90%;
+}
+
+.emotion-day {
+  width: 12%;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: height var(--transition-normal) ease;
+}
+
+.emotion-day[data-emotion="joy"] {
+  background-color: var(--emotion-joy);
+}
+
+.emotion-day[data-emotion="calm"] {
+  background-color: var(--emotion-calm);
+}
+
+.emotion-day[data-emotion="neutral"] {
+  background-color: var(--emotion-neutral);
+}
+
+.emotion-day[data-emotion="sad"] {
+  background-color: var(--emotion-sad);
+}
+
+.emotion-day[data-emotion="stressed"] {
+  background-color: var(--emotion-stressed);
+}
+
+.emotion-day[data-emotion="angry"] {
+  background-color: var(--emotion-angry);
+}
+
+.chart-labels {
+  margin-top: var(--space-1);
+  color: var(--text-tertiary);
+}
+
+/* 情緒洞察區塊 */
+.insight-suggestion {
+  border-left: 3px solid var(--primary-color);
+}
+
+/* 推薦活動部分 */
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.recommendation-card {
+  overflow: hidden;
+  transition: transform var(--transition-normal) ease, 
+              box-shadow var(--transition-normal) ease;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.recommendation-image {
+  height: 160px;
+  overflow: hidden;
+}
+
+.recommendation-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal) ease;
+}
+
+.recommendation-card:hover .recommendation-image img {
+  transform: scale(1.05);
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-normal) ease,
+              color var(--transition-normal) ease;
+  display: inline-block;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+}
+
+.btn-sm {
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-xs);
+}
+
+/* 頁腳樣式 */
+.main-footer {
+  margin-top: var(--space-8);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: var(--space-2);
+}
+
+.footer-links a {
+  color: var(--neutral-300);
+  transition: color var(--transition-fast) ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: background-color var(--transition-fast) ease;
+}
+
+.social-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.language-selector select {
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+/* 主導航樣式 */
+.main-nav {
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-3) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logo-img {
+  height: 30px;
+  margin-right: var(--space-2);
+}
+
+.logo-text {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+.nav-links {
+  list-style: none;
+  gap: var(--space-5);
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast) ease;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links li.active a {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-semibold);
+}
+
+.user-avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-light);
+  transition: border-color var(--transition-fast) ease;
+}
+
+.user-avatar:hover img {
+  border-color: var(--primary-color);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .emotion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .emotion-history .row {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .emotion-card {
+    padding: var(--space-4);
+  }
+  
+  .nav-links {
+    display: none; /* 在移動端需要改為漢堡菜單 */
+  }
+}
+
+/* 動畫效果 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
